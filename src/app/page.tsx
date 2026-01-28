@@ -3,14 +3,16 @@ import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
+import AboutSection from "./components/AboutSelection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-grid-pattern">
       <Header />
       <HeroSection />
-      <ContactSection/>
+      <AboutSection />
+      <ContactSection />
       <Footer />
-   </main>
+    </main>
   );
 }
