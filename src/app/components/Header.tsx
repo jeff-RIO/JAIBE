@@ -1,20 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "../components/ui/button";
 import Image from "next/image";
-// Se a imagem estiver em public, podemos usar:
-import tattooMachine from "../assets/logo.png"; // ou ajuste o caminho
+import tattooMachine from "../assets/logo.png";
+
+const WHATSAPP_LINK =
+  "https://wa.me/552124955245?text=Oi!%20Quero%20agendar%20uma%20sess%C3%A3o.";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -35,13 +35,13 @@ const Header = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <a href="#" className="flex items-center gap-3 group">
-          {/* Usando o componente Image do Next.js */}
           <Image
-            src={tattooMachine} // ou se estiver em public: src="/tattoo-machine.png"
+            src={tattooMachine}
             alt="Jaire Logo"
             width={100}
             height={100}
             className="object-contain transition-transform group-hover:rotate-12"
+            priority
           />
         </a>
 
@@ -56,8 +56,19 @@ const Header = () => {
               {link.label}
             </a>
           ))}
-          <Button variant="hero" size="default">
-            Agendar
+
+          {/* ZAP */}
+          <Button variant="hero" size="default" asChild>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chamar no WhatsApp"
+              className="inline-flex items-center gap-2"
+            >
+              <MessageCircle size={18} />
+              <span className="font-display tracking-[0.22em]">ZAP</span>
+            </a>
           </Button>
         </nav>
 
@@ -65,6 +76,7 @@ const Header = () => {
         <button
           className="md:hidden text-foreground p-2 hover:text-primary transition-colors"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
         >
           {isMenuOpen ? (
             <X size={28} strokeWidth={2.5} />
@@ -91,8 +103,22 @@ const Header = () => {
               {link.label}
             </a>
           ))}
-          <Button variant="hero" size="lg" className="mt-4">
-            Agendar
+
+          {/* ZAP (mobile) */}
+          <Button variant="hero" size="lg" className="mt-4" asChild>
+            <a
+              href={WHATSAPP_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chamar no WhatsApp"
+              className="inline-flex items-center justify-center gap-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <MessageCircle size={20} />
+              <span className="font-display tracking-[0.22em]">
+                CHAMAR NO ZAP
+              </span>
+            </a>
           </Button>
         </nav>
       </div>

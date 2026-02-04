@@ -15,7 +15,7 @@ const Footer = () => {
               <Image
                 src={Logo}
                 alt="Jaire Logo"
-                width={50}  // Adjusted to be smaller for footer
+                width={50} // Adjusted to be smaller for footer
                 height={50}
                 className="object-contain transition-transform group-hover:rotate-12"
               />
@@ -25,7 +25,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex items-center gap-3">
             <a
-              href="https://instagram.com/jaire.tattoo"
+              href="https://www.instagram.com/jaibetattoo/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all"

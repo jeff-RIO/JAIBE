@@ -30,7 +30,11 @@ const HeroSection = () => {
         {/* Logo / Placa */}
         <div
           className="mb-8 animate-fade-up flex justify-center perspective-1000"
-          style={{ animationDelay: "0.2s", opacity: 0, animationFillMode: "forwards" }}
+          style={{
+            animationDelay: "0.2s",
+            opacity: 0,
+            animationFillMode: "forwards",
+          }}
         >
           <div className="relative group cursor-pointer">
             {/* Glow atrás da placa */}
@@ -53,7 +57,11 @@ const HeroSection = () => {
         {/* Texto com imagens atrás das palavras */}
         <div
           className="mb-4 animate-fade-up"
-          style={{ animationDelay: "0.4s", opacity: 0, animationFillMode: "forwards" }}
+          style={{
+            animationDelay: "0.4s",
+            opacity: 0,
+            animationFillMode: "forwards",
+          }}
         >
           <p className="font-display text-xl md:text-2xl text-primary tracking-[0.4em] uppercase relative inline-flex flex-wrap justify-center gap-3">
             {/* Tatuadora + imagem atrás */}
@@ -88,7 +96,11 @@ const HeroSection = () => {
 
         <div
           className="flex items-center justify-center gap-4 my-6 animate-fade-up"
-          style={{ animationDelay: "0.5s", opacity: 0, animationFillMode: "forwards" }}
+          style={{
+            animationDelay: "0.5s",
+            opacity: 0,
+            animationFillMode: "forwards",
+          }}
         >
           <div className="w-12 md:w-20 h-1 bg-primary" />
           <div className="w-3 h-3 bg-primary rotate-45" />
@@ -97,16 +109,26 @@ const HeroSection = () => {
 
         <p
           className="font-body text-foreground/80 max-w-lg mx-auto mb-10 text-base md:text-lg leading-relaxed animate-fade-up"
-          style={{ animationDelay: "0.8s", opacity: 0, animationFillMode: "forwards" }}
+          style={{
+            animationDelay: "0.8s",
+            opacity: 0,
+            animationFillMode: "forwards",
+          }}
         >
           Precisão nas linhas. Expressão na arte.
           <br />
-          <span className="text-primary font-semibold">Cada tattoo é única.</span>
+          <span className="text-primary font-semibold">
+            Cada tattoo é única.
+          </span>
         </p>
 
         <div
           className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-up"
-          style={{ animationDelay: "1s", opacity: 0, animationFillMode: "forwards" }}
+          style={{
+            animationDelay: "1s",
+            opacity: 0,
+            animationFillMode: "forwards",
+          }}
         >
           <Button variant="hero" size="xl">
             Agendar Sessão
@@ -122,9 +144,6 @@ const HeroSection = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary hover:text-foreground transition-colors group"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="font-display text-xs tracking-widest opacity-60 group-hover:opacity-100">
-            SCROLL
-          </span>
           <ArrowDown size={24} className="animate-bounce" />
         </div>
       </a>
