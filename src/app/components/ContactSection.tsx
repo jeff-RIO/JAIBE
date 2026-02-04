@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Instagram, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
+import { Instagram, MapPin, Phone, ArrowUpRight } from "lucide-react";
 
 import florCacau from "../assets/flordecacau.png";
 import { StreetCardYellow } from "../components/StreetCardYellow";
@@ -17,8 +17,6 @@ const ContactSection = () => {
         <div className="absolute right-10 bottom-10 w-[280px] h-[280px] border-2 border-primary -rotate-12" />
       </div>
 
-      {/* Sticker/tag (calêndula forte) */}
-
       {/* Accent line */}
       <div className="absolute bottom-0 right-1/4 w-px h-44 bg-gradient-to-t from-primary to-transparent" />
 
@@ -27,11 +25,11 @@ const ContactSection = () => {
         <Image src={florCacau} alt="" width={420} height={420} aria-hidden />
       </div>
 
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left */}
-          <div className="max-w-xl">
-            <div className="flex items-center gap-3 mb-5">
+          <div className="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+            <div className="flex items-center gap-3 mb-5 justify-center lg:justify-start">
               <div className="w-10 h-[2px] bg-primary" />
               <span className="font-display text-primary text-lg tracking-[0.35em] uppercase">
                 Contato
@@ -53,27 +51,30 @@ const ContactSection = () => {
               </span>
             </p>
 
-            {/* CTA - calêndula bem presente */}
-            <a
-              href="https://wa.me/552124955245?text=Oi!%20Quero%20agendar%20uma%20sess%C3%A3o."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-5 py-3 border-2 border-primary/70
-                         bg-primary/20 text-foreground transition-all
-                         shadow-[6px_6px_0_0_hsl(var(--foreground)/0.9)]
-                         hover:bg-primary/28 hover:border-primary
-                         hover:translate-x-[1px] hover:translate-y-[1px]
-                         active:translate-x-[3px] active:translate-y-[3px]
-                         active:shadow-[3px_3px_0_0_hsl(var(--foreground)/0.9)]
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
-            >
-              <span className="font-display tracking-[0.22em]">
-                CHAMAR NO WHATSAPP
-              </span>
-            </a>
-            <ArrowUpRight size={18} className="text-primary" />
-            {/* Cards */}
-            <div className="mt-8 grid gap-4">
+            {/* CTA (agora com o ícone dentro, centraliza certo no mobile) */}
+            <div className="flex justify-center lg:justify-start">
+              <a
+                href="https://wa.me/552124955245?text=Oi!%20Quero%20agendar%20uma%20sess%C3%A3o."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-5 py-3 border-2 border-primary/70
+                           bg-primary/20 text-foreground transition-all
+                           shadow-[6px_6px_0_0_hsl(var(--foreground)/0.9)]
+                           hover:bg-primary/28 hover:border-primary
+                           hover:translate-x-[1px] hover:translate-y-[1px]
+                           active:translate-x-[3px] active:translate-y-[3px]
+                           active:shadow-[3px_3px_0_0_hsl(var(--foreground)/0.9)]
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+              >
+                <span className="font-display tracking-[0.22em]">
+                  CHAMAR NO WHATSAPP
+                </span>
+                <ArrowUpRight size={18} className="text-primary" />
+              </a>
+            </div>
+
+            {/* Cards (centralizados e com largura consistente no mobile) */}
+            <div className="mt-8 grid gap-4 w-full max-w-[520px] mx-auto lg:mx-0">
               <StreetCardYellow
                 href="https://wa.me/552124955245?text=Oi!%20Quero%20agendar%20uma%20sess%C3%A3o."
                 title="WHATSAPP"
@@ -92,7 +93,7 @@ const ContactSection = () => {
 
               {/* Location (non-link) */}
               <div className="relative border-2 border-border bg-primary/10 p-4 shadow-[8px_8px_0_0_hsl(var(--foreground)/0.9)]">
-                {/* tape */}
+                <div className="absolute -top-3 left-6 w-20 h-6 bg-primary/35 border-2 border-primary/70 rotate-[-6deg]" />
                 <div className="flex items-center gap-4">
                   <div className="w-11 h-11 bg-secondary border-2 border-primary/50 flex items-center justify-center">
                     <MapPin size={18} className="text-primary" />
@@ -116,7 +117,7 @@ const ContactSection = () => {
 
             <a
               href="#portfolio"
-              className="group relative w-full max-w-[520px]
+              className="group relative w-full max-w-[520px] mx-auto lg:mx-0
                border-2 border-primary/60 bg-background p-6 md:p-8
                shadow-[10px_10px_0_0_hsl(var(--foreground)/0.9)]
                transition-transform hover:-translate-y-1
@@ -127,13 +128,14 @@ const ContactSection = () => {
               <div className="absolute -top-3 left-8 w-24 h-7 bg-primary/35 border-2 border-primary/70 rotate-[10deg]" />
               <div className="absolute -top-3 right-10 w-20 h-7 bg-primary/35 border-2 border-primary/70 rotate-[-8deg]" />
 
-              <div className="flex items-center justify-between gap-6 mb-4">
+              {/* Header do card (no mobile vira coluna pra não ficar “esticado”) */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-6 mb-4">
                 <p className="font-display text-[11px] md:text-xs uppercase tracking-[0.28em] text-foreground/70">
                   <span
                     className="inline-flex items-center gap-2 border-2 border-primary/70 bg-primary/15 px-5 py-2.5
-                 text-base md:text-lg
-                 shadow-[8px_8px_0_0_hsl(var(--foreground)/0.9)]
-                 -rotate-1"
+                               text-base md:text-lg
+                               shadow-[8px_8px_0_0_hsl(var(--foreground)/0.9)]
+                               -rotate-1"
                   >
                     FLASH
                   </span>
@@ -144,9 +146,7 @@ const ContactSection = () => {
                 </span>
               </div>
 
-              <div className="relative border-2 border-primary/50 bg-primary/10 p-4">
-                <FlashPoster className="transition-transform duration-500 group-hover:rotate-3 group-hover:scale-[1.03]" />
-              </div>
+              <FlashPoster className="transition-transform duration-500 md:group-hover:rotate-3 md:group-hover:scale-[1.03]" />
 
               <div className="mt-5">
                 <h3 className="font-display text-2xl md:text-3xl uppercase tracking-[0.08em] text-foreground leading-none">

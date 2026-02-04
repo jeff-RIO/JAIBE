@@ -8,9 +8,9 @@ type StreetCardYellowProps = {
   value: string;
   icon: React.ReactNode;
 
-  badge?: string;          // ex: "ORIGINAL"
-  showTape?: boolean;      // default true
-  rightIcon?: React.ReactNode; // default ArrowUpRight
+  badge?: string;
+  showTape?: boolean;
+  rightIcon?: React.ReactNode;
   className?: string;
 
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -37,18 +37,22 @@ export function StreetCardYellow({
       rel={href && external ? "noopener noreferrer" : undefined}
       onClick={onClick}
       className={[
-        "relative group border-2 border-border bg-primary/10 p-4",
+        "block relative group border-2 border-border bg-primary/10 p-4",
         "shadow-[8px_8px_0_0_hsl(var(--foreground)/0.9)]",
-        "transition-all hover:-translate-y-[2px]",
-        "hover:border-primary/70 hover:bg-primary/14",
+        "transition-transform",
+        // ✅ hover só no desktop (evita hover “preso” no iPhone)
+        "md:hover:-translate-y-[2px] md:hover:border-primary/70 md:hover:bg-primary/15",
+        // ✅ feedback no toque
+        "active:translate-y-[1px]",
         "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70",
+        "[-webkit-tap-highlight-color:transparent]",
         href ? "cursor-pointer" : "",
         className,
       ].join(" ")}
     >
-      {/* tape */}
+      {/* tape (só aparece em hover desktop) */}
       {showTape && (
-        <div className="absolute -top-3 left-6 w-20 h-6 bg-primary/40 border-2 border-primary/70 rotate-[-6deg] opacity-0 group-hover:opacity-100 transition-opacity" />
+        <div className="absolute -top-3 left-6 w-20 h-6 bg-primary/40 border-2 border-primary/70 rotate-[-6deg] opacity-0 md:group-hover:opacity-100 transition-opacity" />
       )}
 
       {/* badge */}
@@ -61,22 +65,25 @@ export function StreetCardYellow({
       )}
 
       <div className="flex items-center gap-4">
-        <div className="w-11 h-11 bg-secondary border-2 border-primary/50 flex items-center justify-center">
+        <div className="w-11 h-11 shrink-0 bg-secondary border-2 border-primary/50 flex items-center justify-center">
           {icon}
         </div>
 
-        <div className="leading-tight">
+        {/* ✅ evita estouro/estranheza no iPhone */}
+        <div className="flex-1 min-w-0 leading-tight">
           <p className="font-display text-[11px] text-muted-foreground tracking-[0.25em]">
             {title}
           </p>
-          <p className="font-body text-sm text-foreground/95">{value}</p>
+          <p className="font-body text-sm text-foreground/95 truncate">
+            {value}
+          </p>
         </div>
 
-        <span className="ml-auto">
+        <span className="shrink-0 ml-2">
           {rightIcon ?? (
             <ArrowUpRight
               size={16}
-              className="text-foreground/30 group-hover:text-primary transition-colors"
+              className="text-foreground/30 md:group-hover:text-primary transition-colors"
             />
           )}
         </span>
