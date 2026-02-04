@@ -3,6 +3,7 @@ import { Instagram, Mail, MapPin, Phone, ArrowUpRight } from "lucide-react";
 
 import florCacau from "../assets/flordecacau.png";
 import { StreetCardYellow } from "../components/StreetCardYellow";
+import FlashPoster from "./flash";
 
 const ContactSection = () => {
   return (
@@ -44,13 +45,17 @@ const ContactSection = () => {
             </h2>
 
             <p className="font-body text-foreground/75 mt-6 mb-8 text-base md:text-[17px] leading-relaxed">
-              Me chama pra agendar sua sessão ou trocar uma ideia sobre sua arte.
-              <span className="text-foreground/95"> Direto, simples e real.</span>
+              Me chama pra agendar sua sessão ou trocar uma ideia sobre sua
+              arte.
+              <span className="text-foreground/95">
+                {" "}
+                Direto, simples e real.
+              </span>
             </p>
 
             {/* CTA - calêndula bem presente */}
             <a
-              href="https://wa.me/5511999999999?text=Oi%21%20Quero%20agendar%20uma%20sess%C3%A3o."
+              href="https://wa.me/552124955245?text=Oi!%20Quero%20agendar%20uma%20sess%C3%A3o."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-5 py-3 border-2 border-primary/70
@@ -62,31 +67,25 @@ const ContactSection = () => {
                          active:shadow-[3px_3px_0_0_hsl(var(--foreground)/0.9)]
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
             >
-              <span className="font-display tracking-[0.22em]">CHAMAR NO WHATSAPP</span>
-              <ArrowUpRight size={18} className="text-primary" />
+              <span className="font-display tracking-[0.22em]">
+                CHAMAR NO WHATSAPP
+              </span>
             </a>
-
+            <ArrowUpRight size={18} className="text-primary" />
             {/* Cards */}
             <div className="mt-8 grid gap-4">
               <StreetCardYellow
-                href="mailto:contato@jaire.art"
-                title="EMAIL"
-                value="contato@jaire.art"
-                icon={<Mail size={18} className="text-primary" />}
-              />
-
-              <StreetCardYellow
-                href="tel:+5511999999999"
+                href="https://wa.me/552124955245?text=Oi!%20Quero%20agendar%20uma%20sess%C3%A3o."
                 title="WHATSAPP"
-                value="(11) 99999-9999"
+                value="(21) 2495-5245"
                 icon={<Phone size={18} className="text-primary" />}
-                badge="ORIGINAL"
+                external
               />
 
               <StreetCardYellow
-                href="https://instagram.com/jaire.tattoo"
+                href="https://www.instagram.com/jaibetattoo/"
                 title="INSTAGRAM"
-                value="@jaire.tattoo"
+                value="@jaibetattoo"
                 icon={<Instagram size={18} className="text-primary" />}
                 external
               />
@@ -94,7 +93,6 @@ const ContactSection = () => {
               {/* Location (non-link) */}
               <div className="relative border-2 border-border bg-primary/10 p-4 shadow-[8px_8px_0_0_hsl(var(--foreground)/0.9)]">
                 {/* tape */}
-                <div className="absolute -top-3 left-6 w-20 h-6 bg-primary/35 border-2 border-primary/70 rotate-[-6deg]" />
                 <div className="flex items-center gap-4">
                   <div className="w-11 h-11 bg-secondary border-2 border-primary/50 flex items-center justify-center">
                     <MapPin size={18} className="text-primary" />
@@ -104,7 +102,7 @@ const ContactSection = () => {
                       ESTÚDIO
                     </p>
                     <p className="font-body text-sm text-foreground/95">
-                      São Paulo, SP
+                      Rio de Janeiro,RJ
                     </p>
                   </div>
                 </div>
@@ -119,43 +117,47 @@ const ContactSection = () => {
             <a
               href="#portfolio"
               className="group relative w-full max-w-[520px]
-                         border-2 border-primary/60 bg-background p-6 md:p-8
-                         shadow-[10px_10px_0_0_hsl(var(--foreground)/0.9)]
-                         transition-transform hover:-translate-y-1
-                         hover:border-primary"
-              aria-label="Ver portfólio"
+               border-2 border-primary/60 bg-background p-6 md:p-8
+               shadow-[10px_10px_0_0_hsl(var(--foreground)/0.9)]
+               transition-transform hover:-translate-y-1
+               hover:border-primary"
+              aria-label="Ver flashes e portfólio"
             >
               {/* tape corners (calêndula) */}
               <div className="absolute -top-3 left-8 w-24 h-7 bg-primary/35 border-2 border-primary/70 rotate-[10deg]" />
               <div className="absolute -top-3 right-10 w-20 h-7 bg-primary/35 border-2 border-primary/70 rotate-[-8deg]" />
 
               <div className="flex items-center justify-between gap-6 mb-4">
-                <p className="font-display text-xs tracking-[0.35em] text-muted-foreground">
-                  POSTER
+                <p className="font-display text-[11px] md:text-xs uppercase tracking-[0.28em] text-foreground/70">
+                  <span
+                    className="inline-flex items-center gap-2 border-2 border-primary/70 bg-primary/15 px-5 py-2.5
+                 text-base md:text-lg
+                 shadow-[8px_8px_0_0_hsl(var(--foreground)/0.9)]
+                 -rotate-1"
+                  >
+                    FLASH
+                  </span>
                 </p>
+
                 <span className="font-display text-xs text-primary tracking-[0.25em] inline-flex items-center gap-2">
-                  VER PORTFÓLIO <ArrowUpRight size={14} />
+                  VER TRABALHOS <ArrowUpRight size={14} />
                 </span>
               </div>
 
               <div className="relative border-2 border-primary/50 bg-primary/10 p-4">
-                <Image
-                  src={florCacau}
-                  alt="Flor decorativa"
-                  width={420}
-                  height={420}
-                  className="object-contain transition-transform duration-500
-                             group-hover:rotate-3 group-hover:scale-[1.03]"
-                  priority
-                />
+                <FlashPoster className="transition-transform duration-500 group-hover:rotate-3 group-hover:scale-[1.03]" />
               </div>
 
               <div className="mt-5">
-                <h3 className="font-display text-xl md:text-2xl tracking-[0.18em] text-foreground">
-                  TATUAGEM & ARTE
+                <h3 className="font-display text-2xl md:text-3xl uppercase tracking-[0.08em] text-foreground leading-none">
+                  <span className="text-primary drop-shadow-sm">
+                    DISPONÍVEIS
+                  </span>
                 </h3>
+
                 <p className="font-body text-sm text-foreground/75 mt-2 leading-relaxed">
-                  Curtiu o estilo? Vem ver os trampos e me chama pra criar algo com sua cara.
+                  Escolhe um flash que combina contigo — depois bora ajustar do
+                  seu jeito. Clique pra ver mais no portfólio.
                 </p>
               </div>
             </a>
